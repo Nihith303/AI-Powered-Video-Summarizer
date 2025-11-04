@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YouTube Transcript Summarizer & QA</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>YouTube Transcript Summarizer & Q&A</h1>
+
+    <section class="card">
+      <h2>1) Choose Input Method</h2>
+      
+      <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'youtube-tab')">YouTube URL</button>
+        <button class="tablinks" onclick="openTab(event, 'upload-tab')">Upload Video</button>
+      </div>
+
+      <div id="youtube-tab" class="tabcontent" style="display: block;">
+        <div class="row">
+          <input id="yt-url" type="text" placeholder="Paste YouTube video URL" />
+          <button id="btn-process">Process</button>
+        </div>
+        <div id="process-status" class="status"></div>
+      </div>
+
+      <div id="upload-tab" class="tabcontent">
+        <div class="row">
+          <input type="file" id="video-upload" accept="video/*" style="display: none;">
+          <div class="file-upload-container">
+            <label for="video-upload" class="upload-btn">Choose Video File</label>
+            <span id="file-name">No file chosen</span>
+          </div>
+          <button id="btn-upload" disabled>Process</button>
+        </div>
+        <div id="upload-status" class="status"></div>
+        <div id="progress-container" style="display: none;">
+          <div class="progress-bar">
+            <div id="progress-bar-fill" class="progress-bar-fill"></div>
+          </div>
+          <div id="progress-text">0%</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>1b) Or Paste Transcript Manually</h2>
+      <div class="row">
+        <textarea id="manual-text" placeholder="Paste transcript text here" rows="6" style="width:100%;"></textarea>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <button id="btn-process-text">Build Index From Text</button>
+      </div>
+      <div id="process-text-status" class="status"></div>
+    </section>
+
+    <section class="card">
+      <h2>2) Summarize Transcript</h2>
+      <div class="row">
+        <button id="btn-summarize">Summarize</button>
+      </div>
+      <pre id="summary" class="result"></pre>
+    </section>
+
+    <section class="card">
+      <h2>3) Ask Questions</h2>
+      <div class="row">
+        <input id="question" type="text" placeholder="Ask a question about the video" />
+        <button id="btn-ask">Ask</button>
+      </div>
+      <pre id="answer" class="result"></pre>
+      <div id="sources" class="muted"></div>
+    </section>
+
+    <footer>
+      <p>Set environment variable <code>OPENROUTER_API_KEY</code> before running. Models can be overridden with <code>QWEN_MODEL</code> and <code>LLAMA_MODEL</code>.</p>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

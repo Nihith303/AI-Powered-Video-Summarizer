@@ -1,0 +1,73 @@
+* { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: #0b1220; color: #e6edf3; margin: 0; }
+.container { max-width: 900px; margin: 40px auto; padding: 0 16px; }
+h1 { font-size: 28px; margin-bottom: 16px; }
+.card { background: #0f172a; border: 1px solid #1f2a44; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+h2 { font-size: 18px; margin: 0 0 12px; }
+.row { display: flex; gap: 8px; align-items: center; }
+input[type="text"] { flex: 1; padding: 10px 12px; border-radius: 8px; border: 1px solid #1f2a44; background: #0b1220; color: #e6edf3; }
+button { padding: 10px 14px; background: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
+button:hover { background: #1d4ed8; }
+button:disabled { background: #3b4a6b; cursor: not-allowed; }
+.status { margin-top: 8px; color: #93c5fd; }
+.result { white-space: pre-wrap; background: #0b1220; border: 1px solid #1f2a44; padding: 12px; border-radius: 8px; min-height: 80px; }
+.muted { color: #9ca3af; margin-top: 8px; font-size: 12px; }
+footer { margin-top: 24px; color: #94a3b8; font-size: 12px; }
+
+/* Tab styles */
+.tab { display: flex; margin-bottom: 16px; border-bottom: 1px solid #1f2a44; }
+.tab button { background: none; border: none; border-radius: 6px 6px 0 0; margin-right: 4px; color: #94a3b8; padding: 8px 16px; }
+.tab button:hover { background: #1e293b; color: #e2e8f0; }
+.tab button.active { background: #1e293b; color: #60a5fa; border-bottom: 2px solid #60a5fa; }
+.tabcontent { display: none; padding: 12px 0; }
+.tabcontent.active { display: block; }
+
+/* File upload styles */
+.file-upload-container { display: flex; flex-direction: column; flex: 1; }
+.upload-btn {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #1e293b;
+  color: #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s;
+  border: 1px dashed #334155;
+}
+.upload-btn:hover {
+  background: #334155;
+}
+#file-name {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Progress bar styles */
+.progress-container {
+  margin-top: 12px;
+  display: none;
+}
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #1e293b;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.progress-bar-fill {
+  height: 100%;
+  background-color: #2563eb;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+#progress-text {
+  text-align: right;
+  font-size: 12px;
+  color: #94a3b8;
+}
